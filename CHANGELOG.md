@@ -1,12 +1,13 @@
 # Change Log
 
-## Version 5.0 Beta
+## Version 5.0
+**This version is a major release that includes new features. It will support updating from either the version 2.x or 3.x of the learning pathways solution. You should take appropriate caution when updating to this version of the web part by backing up your learning pathways master site content, specifically your custom subcategories, custom playlists, and custom assets. Please see [Backup Playlist Content](./installation/BackupInstructions.md) for more detail instructions.**
 
 - Updated SPFx version to 1.19
 - Updated PnPJS version to 4.1.1
 - User interface fixes to increase accessability and responsiveness
 - Enhancement for [#570](../../../issues/570) - Allow search bar to be visible at all time
-- Enhancement to allow for custom analytics webhook 
+- Enhancement to allow for [custom analytics webhook](./installation/ConfigureAnalyticsWebHook.md)
 
 ## Version 4.4
 
