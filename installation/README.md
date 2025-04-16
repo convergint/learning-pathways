@@ -18,7 +18,7 @@ If you are upgrading an existing Microsoft 365 Learning Pathways site please fol
 
 ## Minimal Installation Overview
 
-The Microsoft 365 learning pathways solution is built using the [SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview) version 1.19.0.
+The Microsoft 365 learning pathways solution is built using the [SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/npmsharepoint-framework-overview) version 1.19.0.
 
 To manually install and configure the web part and site collection you will need to complete the following steps:
 
@@ -48,7 +48,7 @@ Add `Microsoft 365 learning pathways` App to the site collection.
 
 ## Execute PowerShell Configuration Script
 
-A PowerShell script `M365lpConfiguration.ps1` is included that you will need to execute to create three [tenant properties](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/tenant-properties) that the solution uses. In addition, the script creates two [single part app pages](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/single-part-app-pages) in the site pages library to host the admin and user web parts at a known location.
+A PowerShell script `M365lpConfiguration.ps1` is included that you will need to execute to create three [tenant properties](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/tenant-properties) that the solution uses. In addition, the script creates two [single part app pages](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/single-part-app-pages) in the site pages library to host the admin and user web parts at a known location. This script was built to use [PnP PowerShell](https://pnp.github.io/powershell/articles/registerapplication.html). Ensure that you can run basic commands and connect before running the Learning Pathways installation script.
 
 Using the script looks like this:
 `.\M365lpConfiguration.ps1 -TenantName contoso -SiteCollectionName MicrosoftTraining`
@@ -68,6 +68,10 @@ When prompted enter the credentials of a user with the SharePoint Administrator 
 When prompted enter the credentials of a Site Collection Owner of the M365LP Site Collection. The `–SiteAdminOnly` switch tells the configuration script not to try to do any tenant level configuration and jump right to the site collection setup.
 
 After both parts of the script have successfully executed Microsoft 365 learning pathways will be installed and configured and ready for you to customize and use.
+
+## API permissions
+
+New in version 5 we have changed the way that we are providing functionality for uploading custom images for custom images. To that end we are using Microsoft Graph Files.ReadWrite.All permissions. After you install the solution you will need to go to the SharePoint Admin Center. Under Advanced select API Access. Select the pending request for File.ReadWrite.All and approve it. Note: You will need to be a global admin to approve this setting. Not approving this setting will not affect how Microsoft 365 Learning Pathways works except that you will not be able to add custom images for your playlists or assets.
 
 ## Configuring the Custom Analytics Webhook
 
